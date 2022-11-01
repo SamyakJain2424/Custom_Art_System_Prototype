@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <!-- <link href="css/upload_design.css" rel="stylesheet" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Upload Image</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="h-100 h-custom" style="background-color: #85ccaa;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="card rounded-3">
+                        <img src="https://www.designhill.com/design-blog/wp-content/uploads/2019/03/Malika-Favre.jpg"
+                            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+                            alt="Sample photo">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Upload Your Design</h3>
+
+                            <form class="px-md-2" id="form" method="POST" action="/upload"
+                                enctype="multipart/form-data">
+
+                                <div class="form-outline mb-4">
+                                    <label for="image" class="form-label">Upload Design</label>
+                                    <input type="file" class="form-control" id="image" name="image" required>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label for="des_name" class="form-label">Design Name</label>
+                                    <input type="text" class="form-control" id="des_name" name="des_name" required>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label for="cost" class="form-label">Enter Cost</label>
+                                    <input type="number" class="form-control" id="cost" name="cost" required>
+                                </div>
+
+                                <!-- <div class="form-outline mb-4">
+                                    <label for="genre">Choose a genre:</label>
+                                    <select id="genre" name="genre">
+                                        <option value="space">Space</option>
+                                        <option value="superhero">Superhero</option>
+                                        <option value="nature">Nature</option>
+                                        <option value="sports">Sports</option>
+                                    </select>
+                                </div> -->
+
+                                <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                                <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+
+                                <button type="submit" class="btn btn-primary">Upload</button>
+
+                            </form>
+
+                            <% if(mess.length> 0) {%>
+                                <p>
+                                    <%=mess %>
+                                </p>
+                                <% } %>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="submit">
+    </form> -->
+
+
+    <!-- <div class="frame">
+        <div class="center">
+            <div class="title">
+                <h1>Drop Image to upload</h1>
+            </div>
+    
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" class="upload-input" />
+            </div>
+    
+            <button type="button" class="btn" name="uploadbutton">Upload file</button>
+    
+        </div>
+    </div> -->
+</body>
+
+</html>

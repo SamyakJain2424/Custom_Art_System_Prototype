@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+            <!--Navbar-->
+
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--Navbar ends-->
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3">
+                                <%= user.full_name %>
+                            </h5>
+                            <p class="text-muted mb-1">Designation(if any)</p>
+
+
+                        </div>
+                    </div>
+                    <div class="card mb-4 mb-lg-0">
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush rounded-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fas fa-globe fa-lg text-warning"></i>
+                                    <p class="mb-0">Card For Future Purposes</p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                    <p class="mb-0">email id</p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                                    <p class="mb-0">instagram id</p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                                    <p class="mb-0">facebook id</p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                                    <p class="mb-0">telegram</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Full Name</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        <%= user.full_name %>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        <%= user.username %>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Phone</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        <%= user.mobile_num %>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Address</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">nill</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4 mb-md-0">
+                                <div class="card-body">
+                                    <div class="card-body">
+                                        <a href="/bank_details" class="btn btn-light"
+                                            style="width: 80%; border-radius: 20px; font-size: large; border-color: black;"
+                                            role="button" aria-pressed="true">Add Transaction Details</a>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <a href="/upload" class="btn btn-light"
+                                            style="width: 80%; border-radius: 20px; font-size: large; border-color: black;"
+                                            role="button" aria-pressed="true">Upload Your Design</a>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <a href="/user_designs" class="btn btn-light"
+                                            style="width: 80%; border-radius: 20px; font-size: large; border-color: black;"
+                                            role="button" aria-pressed="true">Uploaded
+                                            Designs</a>
+
+                                    </div>
+
+                                    <div class="card-body">
+                                        <a href="#" class="btn btn-light"
+                                            style="width: 80%; border-radius: 20px; font-size: large; border-color: black;"
+                                            role="button" aria-pressed="true">Your Wishlist</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-4 mb-md-0">
+
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-dark"
+                                        style="width: 80%; border-radius: 20px; font-size: large; " role="button"
+                                        aria-pressed="true">Edit Profile</a>
+
+
+                                </div>
+
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-dark"
+                                        style="width: 80%; border-radius: 20px; font-size: large; " role="button"
+                                        aria-pressed="true">Purchased Items</a>
+                                </div>
+
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-dark"
+                                        style="width: 80%; border-radius: 20px; font-size: large; " role="button"
+                                        aria-pressed="true">Delete Account</a>
+                                </div>
+
+                                <div class="card-body">
+                                    <a href="/api/logout" class="btn btn-dark"
+                                        style="width: 80%; border-radius: 20px; font-size: large; " role="button"
+                                        aria-pressed="true">Logout</a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Art Platform</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="css/templatemo-style.css" rel="stylesheet" />
+
+</head>
+
+<body style="background-color: rgb(156, 224, 188);">
+
+    <!--Navbar-->
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <% if (status==="loggedIn" ){ %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/api/logout">Logout</a>
+                        </li>
+
+                        <%}else{ %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+
+                            <% } %>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Navbar ends-->
+
+    <!--Card-->
+    <!-- <div class="container">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title">Welcome Back</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <button type="button" class="btn btn-primary style="><a href="/login"
+                        style="color: white;">Login</a></button>
+                <button type="button" class="btn btn-primary"><a href="/register"
+                        style="color: white;">Register</a></button>
+
+            </div>
+        </div>
+    </div> -->
+
+    <!--Card ends-->
+
+    <div class="container">
+        <!-- Top box -->
+        <!-- Logo & Site Name -->
+        <div class="placeholder">
+            <div class="parallax-window" data-parallax="scroll"
+                data-image-src="https://files.cdn.printful.com/o/upload/lpg-image-upload/7b/7be7d50cf8c7ac44be9a0b5a6f8546e3">
+                <!-- <div class="tm-header">
+                    <div class="row tm-header-inner">
+                        <div class="col-md-6 col-12">
+                            <img src="img/simple-house-logo.png" alt="Logo" class="tm-site-logo" />
+                            <div class="tm-site-text-box">
+                                <h1 class="tm-site-title">Simple House</h1>
+                                <h6 class="tm-site-description">new restaurant template</h6>
+                            </div>
+                        </div>
+                        <nav class="col-md-6 col-12 tm-nav">
+                            <ul class="tm-nav-ul">
+                                <li class="tm-nav-li"><a href="index.html" class="tm-nav-link active">Home</a></li>
+                                <li class="tm-nav-li"><a href="about.html" class="tm-nav-link">About</a></li>
+                                <li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <main>
+            <header class="row tm-welcome-section">
+                <h2 class="col-12 text-center tm-section-title">Welcome To Custom Design Website</h2>
+                <p class="col-12 text-center">A platform where you can get designs by famous and budding artists on your
+                    cloths</p>
+            </header>
+
+            <p class="col-12 text-center">Categories For You</p>
+            <div class="tm-paging-links">
+                <nav>
+                    <ul>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Superheroes</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">Sports</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">Space</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Gallery -->
+            <div class="row tm-gallery">
+                <!-- gallery page 1 -->
+                <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+                    <% for(const image of images) { %>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <img src="<%= image.img %>" alt="Image" class="img-fluid tm-gallery-img" />
+                                <figcaption>
+                                    <h4 class="tm-gallery-title">
+                                        <%= image.des_name %>
+                                    </h4>
+
+                                    <p class="tm-gallery-price">
+                                        Cost: Rs.<%= image.cost %>
+                                    </p>
+                                    <form action="/add_to_cart" method="POST">
+                                        <input type="hidden" id="cart" name="cart" value=<%=image.id %>>
+                                        <button type="submit" class="btn btn-outline-dark">Add To Cart</button>
+                                    </form>
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <% } %>
+                            <!-- <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                                <figure>
+                                    <img src="https://targetlearning.com.au/wp-content/uploads/2021/03/e-colour-subtract.png"
+                                        alt="Image" class="img-fluid tm-gallery-img" />
+                                    <figcaption>
+                                        <h4 class="tm-gallery-title">Design 2</h4>
+                                        <p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur
+                                            metus. Ut
+                                            sit amet tellus accumsan</p>
+                                        <p class="tm-gallery-price">Cost 2</p>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                                <figure>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxoao9yJ30y0iUOAtP-Kri4mvXMZl_BSMAg&usqp=CAU"
+                                        alt="Image" class="img-fluid tm-gallery-img" />
+                                    <figcaption>
+                                        <h4 class="tm-gallery-title">Design-3</h4>
+                                        <p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur
+                                            metus. Ut
+                                            sit amet tellus accumsan</p>
+                                        <p class="tm-gallery-price">Cost 3</p>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                                <figure>
+                                    <img src="https://assets.website-files.com/5b9bbd7fefe50a910d0f0ae8/5baa29509a52155162b2794f_theseen-branding-graphics-website-design.png"
+                                        alt="Image" class="img-fluid tm-gallery-img" />
+                                    <figcaption>
+                                        <h4 class="tm-gallery-title">Design-4</h4>
+                                        <p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur
+                                            metus. Ut
+                                            sit amet tellus accumsan</p>
+                                        <p class="tm-gallery-price">Cost 4</p>
+                                    </figcaption>
+                                </figure>
+                            </article> -->
+
+                </div> <!-- gallery page 1 -->
+
+
+                <div class="tm-section tm-container-inner">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <figure class="tm-description-figure">
+                                <img src="https://img.freepik.com/free-vector/geometric-sale-banners-with-text-space_1017-11175.jpg?w=2000"
+                                    alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tm-description-box">
+                                <h4 class="tm-gallery-title">Information about offers</h4>
+                                <p class="tm-mb-45">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+                                    inventore temporibus vero voluptatum, totam facilis molestias eos eligendi, aliquam
+                                    nobis blanditiis quibusdam corporis possimus corrupti culpa? Sint, assumenda.
+                                    Repellendus, consequatur!</p>
+                                <a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+
+
+
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Handle click on paging links
+            $('.tm-paging-link').click(function (e) {
+                e.preventDefault();
+
+                var page = $(this).text().toLowerCase();
+                $('.tm-gallery-page').addClass('hidden');
+                $('#tm-gallery-page-' + page).removeClass('hidden');
+                $('.tm-paging-link').removeClass('active');
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+</body>
+
+</html>

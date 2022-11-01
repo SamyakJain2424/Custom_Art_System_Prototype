@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="css/templatemo-style.css" rel="stylesheet" />
+
+    <title>User Designs</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Uploaded Designs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/delete">Delete A Design</a>
+                    </li> -->
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="row tm-gallery" style="margin-top: 5%;">
+        <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+            <% for(const image of images) { %>
+                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="<%= image.img %>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Name: <%= image.des_name %>
+                            </h5>
+                            <h5 class="card-title">
+                                Selling Price: <%= image.cost + 500 %>
+                            </h5>
+                            <h5 class="card-title">
+                                Your Profit: <%= image.cost%>
+                            </h5>
+                            <h5 class="card-title">
+                                Sales: <%= image.sales %>
+                            </h5>
+                            <form action="/delete_design" method="POST">
+                                <input type="hidden" id="del" name="del" value=<%=image.id %>>
+                                <button type="submit" class="btn btn-primary">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </article>
+                <% } %>
+        </div>
+    </div>>
+
+
+</body>
+
+</html>
